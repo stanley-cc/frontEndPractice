@@ -1,0 +1,279 @@
+$themecolor: rgb(57, 0, 141);
+
+* {
+  margin: 0rem;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+body {
+    position: relative;
+
+    img.fixed_img {
+        min-height: 100vh;
+        position:fixed;
+        width:100%;
+        z-index: -5;
+        bottom: 0;
+        left: 0;
+    }
+    header {
+        background-color: white;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        box-shadow: 0 10px 6px -6px rgba(0,0,0,0.3);
+        // padding: 0.5rem 0rem;
+        // margin:0.5rem 0rem;
+      
+        section.logo {
+          display: flex;
+          align-items: center;
+          flex: 2 1 400px;
+          // 前面已經宣告過 display:flex，但那個意思是讓 header 成為 flex-container，裡頭的東西（section.logo）是 flex-item
+          // 對 section.logo 宣告 display:flex，意思是此物件成為 container，裡頭的東西（h1、img）也成為 flex-item
+          h1 {
+            font-size: 1.5rem;
+          }
+          img {
+            height: 4vw;
+            font-weight: 4vw;
+          }
+        }
+        nav {
+          // border: 2px solid red;
+          flex: 2 1 400px;
+          ul {
+            display: flex;
+            list-style: none;
+            justify-content: space-around;
+            li {
+              a {
+                color: black;
+                text-decoration: none;
+                font-size: 1rem;
+                padding-bottom: 0.3rem;
+                // margin-top: 1rem;
+              //   padding: 0rem 1rem; -> 有 justift-content 就不需要
+                transition: all 0.2s ease;
+                &:hover {
+                  color: $themecolor;
+                  border-bottom: 1px solid $themecolor;
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      main {
+          section.background-img {
+              min-height: 70vh;
+              background-image: url("./p2-0資源包/images/日本櫻花.jpg");
+              background-size:cover;
+              background-position: center;
+              transition: all 0.75s ease;
+              // border: 2px solid black;
+              position:relative;
+              z-index: 0;
+      
+              display: flex;
+              justify-content: center;
+              align-items: center;
+      
+      
+              div.filter {
+                  background-color: rgba(0,0,0,0.5);
+                  width: 100%;
+                  min-height: 70vh;
+                  position: absolute;
+                  top:0;
+                  left:0;
+                  // 參考點是 sec.background-img
+                  z-index: -1;
+              }
+      
+              h3 {
+                  color:white;
+                  font-size: 2rem;
+                  // vertical-align: middle; <- 這個沒搞頭
+                  text-align: center;
+                  margin: 0rem 3rem;
+              }
+          }
+          section.four_circles {
+              background-color: white;
+              padding: 2rem 1rem;
+      
+              h3 {
+                  font-size: 1.5rem;
+                  text-align: center;
+                  // text-decoration: underline double gray 0.1rem;
+              }
+      
+              div.circles {
+                  // border: 3px solid black;
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                  font-size: 1rem;
+      
+                  div.circle {
+                      // border: 3px solid red;
+                      padding: 1rem 1rem;
+                      flex: 0 1 250px;
+                      display:flex;
+                      flex-direction: column;
+                      align-items: center;
+                      text-align: center;
+                      img {
+                          width: 80%;
+                          border-radius: 50%;
+                          transition: all 0.2s ease-in;
+                          padding: 0.3rem;
+                          margin: 0.5rem 0rem;
+                          &:hover{
+                              border: 2px solid $themecolor;
+                          }
+                      }
+                  }
+              }
+      
+          }
+          section.space {
+              min-height: 60vh;
+              background-color: rgba(0,0,0,0.7);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+      
+              h3 {
+                  font-size: 1.5rem;
+                  color: white;
+              }
+          }
+          section.google {
+            background-color:white;
+            padding: 2rem 1rem;
+            text-align: center;
+            h3 {
+              font-size: 2rem;
+              // text-decoration: underline double gray 0.1rem;
+            }
+            p {
+              font-size: 1rem;
+              margin: 1rem;
+            }
+
+            iframe {
+              width: 100%;
+              height: 40vh;
+            }
+          }
+          footer {
+            display: flex;
+            padding: 2rem;
+            // 整個 footer 區塊的 padding 
+            flex-direction: column;
+            // footer 中的 items（logo 和 links 兩塊）的排列方式
+            align-items: center;
+            color: white;
+            background-color: rgba(100,100,100,0.6);
+
+            section.logo {
+              img {
+                width: 15vw;
+                // 隨時保持視窗的 15% 寬度
+              }
+              h3 {
+                font-size: 1.5rem;
+              }
+            }
+            section.links {
+              margin-top: 0.5rem;
+              // 'links'這整個區塊（包含四組圖 + 文字）和上方的 margin
+              display: flex;
+              flex-wrap: wrap;
+              a {
+              // a 包含圖（含超連結）和文字兩個要素
+                display:flex;
+                flex-direction: column;
+                // 圖和文字的相對排列方向
+                align-items: center;
+                // 圖和文字的垂直對齊
+                text-align: center;
+                // 文字如果多到要分兩行（或本來就有插 br 的話）的文字對齊。只針對文字本身。
+                margin: 0rem 0.7rem;
+                img {
+                  width: 4vh;
+                  height: 4vh;
+                  // 如果沒有限制同高的話，因為 youtube logo 比較扁，文字會偏上 -> youtube 的這個 block 就是比別人扁
+                  // 對 a 用 justify-content 可以用 :end 讓文字對齊統一貼地，但 icon 就會偏下。justify-content: center 的話就是橫向串燒。
+                  margin: 0.5rem 0rem;
+                }
+                p {
+                  color:white;
+                  font-size: 0.8rem;
+                }
+                
+              }
+            }
+          }
+      }
+}
+
+
+@media screen and (max-width: 700px) {
+  body {
+    header {
+      section.logo {
+        flex-direction: column;
+        img {
+          width: 50vw;
+          height: 50vw;
+        }
+      }
+      nav {
+        ul {
+          flex-direction: column;
+          li {
+            padding: 0.5rem 0.25rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #dfcbfb;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: purple;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $themecolor;
+}
